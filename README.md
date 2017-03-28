@@ -1,7 +1,14 @@
 # docker-postgres-multi
 
-docker container which can handle multiple postgres databases and users instead of just one like the offical image.
+Docker image to run a **PostgreSQL** database in a docker container with multiple users and databases.
 
-## Usage
+Image is based of the official postgres:9.6 image. It modifies the `docker-entrypoint.sh` to allow setup of multiple users and databases. Therefore there are two new environment variables that can be set `POSTGRES_USERS` and `POSTGRES_DATABASES`. The functionality of `POSTGRES_USER` and `POSTGRES_DB` is unimpeded. If set the given user and database will be created in addition to the other given users.
 
-docker run --name postgres-mutli -e POSTGRES_USERS="user1:pass1|user2:pass2|user3:pass3" -e POSTGRES_DATABASES="database1:user1|database2:user2|database2:user3" -it --rm lmmdock/postgres-multi
+### Usage
+
+```sh
+docker run -p 5432:5432 --name postgres-multi
+  -e POSTGRES_USERS="user1:password1|user2:password2|user3|password3"
+  -e POSTGRES_DATABASES="db1:user1|db2:user2|db3:user3"
+  -it --rm lmmdock/postgres-multi
+```
