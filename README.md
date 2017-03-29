@@ -8,7 +8,7 @@ Image is based of the official postgres:9.6 image. It modifies the `docker-entry
 
 ```sh
 docker run -p 5432:5432 --name postgres-multi
-  -e POSTGRES_USERS="user1:password1|user2:password2|user3|password3"
+  -e POSTGRES_USERS="user1:password1|user2:password2|user3:password3"
   -e POSTGRES_DATABASES="db1:user1|db2:user2|db3:user3"
   -it --rm lmmdock/postgres-multi
 ```
