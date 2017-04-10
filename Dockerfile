@@ -1,7 +1,7 @@
 # vim:set ft=dockerfile:
 FROM postgres:9.6
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.py /usr/local/bin/
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.py"]
 CMD ["postgres"]
